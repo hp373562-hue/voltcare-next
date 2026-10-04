@@ -60,25 +60,25 @@ export default function ComplaintForm({ defaultName = "", defaultNumber = "" }) 
   }
 
   return (
-    <section className="mt-8 rounded-2xl border border-white/10 bg-slate-900 p-5">
-      <h3 className="text-lg font-bold">Register a complaint</h3>
-      <p className="mt-1 text-sm text-slate-400">
+    <section className="mt-8 hud-panel p-6">
+      <h3 className="text-xl font-bold text-cyan-400 uppercase tracking-widest">Register a complaint</h3>
+      <p className="mt-1 text-xs text-cyan-600 uppercase">
         Our AI will analyze your request for faster processing.
       </p>
 
-      <form onSubmit={handleSubmit} className="mt-5 grid gap-4">
-        <label className="grid gap-2 text-sm">
+      <form onSubmit={handleSubmit} className="mt-6 grid gap-5">
+        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
           Consumer name
           <input
             name="consumerName"
             required
             defaultValue={defaultName}
             placeholder="Enter consumer name"
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all"
           />
         </label>
 
-        <label className="grid gap-2 text-sm">
+        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
           Consumer number
           <input
             name="consumerNumber"
@@ -90,16 +90,16 @@ export default function ComplaintForm({ defaultName = "", defaultNumber = "" }) 
             pattern="[0-9]{12}"
             title="Enter the 12-digit consumer number"
             placeholder="12-digit consumer number"
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all"
           />
         </label>
 
-        <label className="grid gap-2 text-sm">
+        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
           Complaint type
           <select
             name="category"
             required
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all"
           >
             <option value="">Choose one</option>
             <option>Power failure</option>
@@ -110,7 +110,7 @@ export default function ComplaintForm({ defaultName = "", defaultNumber = "" }) 
           </select>
         </label>
 
-        <label className="grid gap-2 text-sm">
+        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
           Area
           <input
             name="area"

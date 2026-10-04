@@ -42,24 +42,27 @@ export default function ServiceForm() {
   }
 
   return (
-    <section className="mt-8 rounded-2xl border border-white/10 bg-slate-900 p-5">
-      <h3 className="text-lg font-bold">Other service requests</h3>
-      <p className="mt-1 text-sm text-slate-400">
+    <section className="mt-8 hud-panel p-6">
+      <h3 className="text-xl font-bold text-cyan-400 uppercase tracking-widest flex items-center gap-2">
+        <span className="w-2 h-2 bg-cyan-400 rounded-full animate-ping"></span>
+        Other service requests
+      </h3>
+      <p className="mt-1 text-xs text-cyan-600 uppercase">
         These are demo requests and are not sent to MSEDCL.
       </p>
 
-      <form onSubmit={handleSubmit} className="mt-5 grid gap-4">
-        <label className="grid gap-2 text-sm">
+      <form onSubmit={handleSubmit} className="mt-6 grid gap-5">
+        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
           Consumer name
           <input
             name="consumerName"
             required
             placeholder="Enter consumer name"
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all uppercase"
           />
         </label>
 
-        <label className="grid gap-2 text-sm">
+        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
           Consumer number
           <input
             name="consumerNumber"
@@ -70,16 +73,16 @@ export default function ServiceForm() {
             pattern="[0-9]{12}"
             title="Enter the 12-digit consumer number"
             placeholder="12-digit consumer number"
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all uppercase"
           />
         </label>
 
-        <label className="grid gap-2 text-sm">
+        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
           Request type
           <select
             name="requestType"
             required
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all uppercase"
           >
             <option value="">Choose a service</option>
             <option>New connection enquiry</option>
@@ -90,38 +93,40 @@ export default function ServiceForm() {
           </select>
         </label>
 
-        <label className="grid gap-2 text-sm">
+        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
           Area
           <input
             name="area"
             required
             placeholder="Your area or locality"
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all uppercase"
           />
         </label>
 
-        <label className="grid gap-2 text-sm">
+        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
           Details
           <textarea
             name="description"
             required
             rows={4}
             placeholder="Add details about your request"
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all"
           />
         </label>
 
         <button
           type="submit"
-          className="w-fit rounded-xl bg-cyan-300 px-4 py-3 font-bold text-slate-950"
+          className="w-fit bg-cyan-300/10 border border-cyan-400 px-6 py-3 font-bold text-cyan-400 hover:bg-cyan-400 hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(0,242,254,0.3)]"
         >
           Submit demo request
         </button>
       </form>
 
-      <p role="status" className="mt-4 text-sm text-cyan-300">
-        {message}
-      </p>
+      {message && (
+        <p className="mt-4 text-xs font-bold text-cyan-400 uppercase" role="status">
+          > {message}
+        </p>
+      )}
     </section>
   );
 }

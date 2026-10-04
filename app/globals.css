@@ -24,3 +24,102 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 242, 254, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 254, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: center center;
+}
+
+.hud-panel {
+  backdrop-filter: blur(16px);
+  background: linear-gradient(135deg, rgba(5, 7, 14, 0.8), rgba(0, 20, 40, 0.6));
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+  position: relative;
+  overflow: hidden;
+}
+
+.hud-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe, transparent);
+  opacity: 0.8;
+}
+
+.hud-panel:hover {
+  border-color: rgba(0, 242, 254, 0.8);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.cyber-font {
+  font-family: 'Orbitron', sans-serif;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scanline {
+  position: fixed;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: rgba(0, 242, 254, 0.2);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 50;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 blue; }
+  25% { text-shadow: -2px 0 red, 2px 0 blue; }
+  50% { text-shadow: 2px 2px red, -2px -2px blue; }
+  75% { text-shadow: -2px -2px red, 2px 2px blue; }
+  100% { text-shadow: 2px 0 red, -2px 0 blue; }
+}
+
+.hover-glitch:hover {
+  animation: glitch 0.3s infinite;
+}
+
+@keyframes pulse-wave {
+  0% { width: 0%; opacity: 1; }
+  100% { width: 100%; opacity: 0; }
+}
+
+.plasma-pulse::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+  animation: pulse-wave 2s infinite;
+}
+
+.ring-hud {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px dashed rgba(0, 242, 254, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+

@@ -32,9 +32,12 @@ export default function ComplaintTracker() {
   }
 
   return (
-    <section className="mt-8 rounded-2xl border border-white/10 bg-slate-900 p-5">
-      <h3 className="text-lg font-bold">Track a complaint</h3>
-      <p className="mt-1 text-sm text-slate-400">
+    <section className="mt-8 hud-panel p-6">
+      <h3 className="text-xl font-bold text-cyan-400 uppercase tracking-widest flex items-center gap-2">
+        <span className="w-2 h-2 bg-cyan-400 rounded-full animate-ping"></span>
+        Track a complaint
+      </h3>
+      <p className="mt-1 text-xs text-cyan-600 uppercase">
         Enter the reference ID shown after submitting your demo complaint.
       </p>
 
@@ -44,30 +47,31 @@ export default function ComplaintTracker() {
           onChange={event => setReference(event.target.value)}
           required
           placeholder="Paste your reference ID"
-          className="min-w-0 flex-1 rounded-lg bg-slate-800 p-3"
+          className="min-w-0 flex-1 bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all uppercase"
         />
-        <button className="rounded-xl bg-cyan-300 px-4 py-3 font-bold text-slate-950">
+        <button className="rounded-r-xl bg-cyan-300/10 border border-cyan-400 px-6 py-3 font-bold text-cyan-400 hover:bg-cyan-400 hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(0,242,254,0.3)]">
           Track
         </button>
       </form>
 
       {message && (
-        <p className="mt-4 text-sm text-cyan-300" role="status">
-          {message}
+        <p className="mt-4 text-xs font-bold text-cyan-400 uppercase" role="status">
+          > {message}
         </p>
       )}
 
       {complaint && (
-        <article className="mt-4 rounded-xl border border-white/10 p-4">
-          <p className="font-semibold">{complaint.category}</p>
-          <p className="mt-3 text-sm">
-            Status: <strong className="text-cyan-300">{complaint.status}</strong>
+        <article className="mt-6 border border-cyan-500/30 bg-cyan-950/30 p-4 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-1 h-full bg-cyan-400"></div>
+          <p className="font-bold text-cyan-300 uppercase tracking-widest">{complaint.category}</p>
+          <p className="mt-3 text-sm text-cyan-100 uppercase">
+            Status: <strong className="text-cyan-400 drop-shadow-[0_0_5px_rgba(0,242,254,0.8)]">{complaint.status}</strong>
           </p>
-          <p className="mt-1 text-xs text-slate-500">
-            Reference: {complaint.id}
+          <p className="mt-2 text-xs text-cyan-600 font-mono">
+            REF: {complaint.id}
           </p>
-          <p className="mt-1 text-xs text-slate-500">
-            Submitted: {new Date(complaint.createdAt).toLocaleString()}
+          <p className="mt-1 text-xs text-cyan-600 font-mono">
+            SYS_TIME: {new Date(complaint.createdAt).toLocaleString()}
           </p>
         </article>
       )}
