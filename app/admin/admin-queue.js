@@ -144,8 +144,15 @@ export default function AdminQueue() {
             className="rounded-xl border border-white/10 p-4"
           >
             <div className="flex flex-wrap items-start justify-between gap-4">
-              <div>
-                <h3 className="font-semibold">{complaint.category}</h3>
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <h3 className="font-semibold">{complaint.category}</h3>
+                  {complaint.aiPriority && (
+                    <span className={`px-2 py-0.5 rounded text-xs font-bold ${complaint.aiPriority === 'Critical' ? 'bg-red-500/20 text-red-400' : complaint.aiPriority === 'High' ? 'bg-orange-500/20 text-orange-400' : 'bg-blue-500/20 text-blue-400'}`}>
+                      {complaint.aiPriority}
+                    </span>
+                  )}
+                </div>
                 <p className="mt-1 text-sm text-slate-300">
                   Consumer: {complaint.consumerName || "—"}
                 </p>
@@ -158,6 +165,16 @@ export default function AdminQueue() {
                 <p className="mt-3 text-sm text-slate-400">
                   {complaint.description}
                 </p>
+                
+                {complaint.aiSummary && (
+                  <div className="mt-4 rounded-lg bg-cyan-950/40 p-3 border border-cyan-900/50">
+                    <p className="text-xs font-bold text-cyan-300 mb-1">✨ AI Insights</p>
+                    <p className="text-sm text-slate-300"><span className="text-slate-400">Category:</span> {complaint.aiCategory}</p>
+                    <p className="text-sm text-slate-300"><span className="text-slate-400">Summary:</span> {complaint.aiSummary}</p>
+                    <p className="text-sm text-slate-300 mt-2"><span className="text-slate-400">Suggested Response:</span> {complaint.aiResponse}</p>
+                  </div>
+                )}
+                
                 <p className="mt-3 text-xs text-slate-500">
                   Ref: {complaint.id}
                 </p>

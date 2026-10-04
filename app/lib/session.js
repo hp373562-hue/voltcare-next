@@ -37,3 +37,31 @@ export async function getAdminSession(token) {
 export async function verifyAdminSession(token) {
   return Boolean(await getAdminSession(token));
 }
+
+export async function createConsumerSession(consumerNumber) {
+  return new SignJWT({ role: "consumer", consumerNumber })
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime("30d")
+    .sign(getSecretKey());
+}
+
+export async function getConsumerSession(token) {
+  if (!token) return null;
+
+  try {
+    const { payload } = await jwtVerify(token, getSecretKey());
+
+    if (payload.role !== "consumer" || typeof payload.consumerNumber !== "string") {
+      return null;
+    }
+
+    return { consumerNumber: payload.consumerNumber };
+  } catch {
+    return null;
+  }
+}
+
+export async function verifyConsumerSession(token) {
+  return Boolean(await getConsumerSession(token));
+}
