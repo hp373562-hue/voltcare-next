@@ -84,7 +84,7 @@ export default async function Home() {
       <div className="mx-auto max-w-6xl relative z-10">
         <section className="py-12">
           <p className="text-sm uppercase tracking-widest text-cyan-500 font-bold mb-2">
-            > Initializing user parameters...
+            {">"} Initializing user parameters...
           </p>
           <h2 className="mt-3 text-3xl font-bold sm:text-5xl hover-glitch text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500 uppercase">
             Good day, {user.name}.
@@ -100,14 +100,14 @@ export default async function Home() {
             <div className="mt-4 relative inline-block plasma-pulse">
               <p className="text-3xl font-bold text-emerald-400 tracking-wider">ACTIVE</p>
             </div>
-            <p className="mt-4 text-xs text-cyan-700 uppercase tracking-widest">> Link established</p>
+            <p className="mt-4 text-xs text-cyan-700 uppercase tracking-widest">{">"} Link established</p>
           </article>
 
           <article className="hud-panel p-6 flex justify-between items-center">
             <div>
               <p className="text-sm text-cyan-500 uppercase tracking-widest">Current bill</p>
               <p className="mt-3 text-2xl font-bold text-cyan-300">₹1,486.20</p>
-              <p className="mt-2 text-xs text-cyan-700 uppercase tracking-widest">> Due 05 Oct 2026</p>
+              <p className="mt-2 text-xs text-cyan-700 uppercase tracking-widest">{">"} Due 05 Oct 2026</p>
             </div>
             <div className="relative flex justify-center items-center">
               <div className="ring-hud"></div>
@@ -121,7 +121,7 @@ export default async function Home() {
               <svg className="size-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
               <p className="text-xl font-bold text-amber-400 uppercase">Anomalies: {openRequestsCount}</p>
             </div>
-            <p className="mt-4 text-xs text-cyan-700 uppercase tracking-widest">> Tracking active</p>
+            <p className="mt-4 text-xs text-cyan-700 uppercase tracking-widest">{">"} Tracking active</p>
           </article>
         </section>
 

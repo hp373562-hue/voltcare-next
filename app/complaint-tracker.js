@@ -56,7 +56,7 @@ export default function ComplaintTracker() {
 
       {message && (
         <p className="mt-4 text-xs font-bold text-cyan-400 uppercase" role="status">
-          > {message}
+          {">"} {message}
         </p>
       )}
 
