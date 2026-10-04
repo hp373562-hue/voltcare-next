@@ -61,24 +61,24 @@ export default function ComplaintForm({ defaultName = "", defaultNumber = "" }) 
 
   return (
     <section className="mt-8 hud-panel p-6">
-      <h3 className="text-xl font-bold text-cyan-400 uppercase tracking-widest">Register a complaint</h3>
-      <p className="mt-1 text-xs text-cyan-600 uppercase">
+      <h3 className="text-xl font-bold text-blue-800 dark:text-cyan-400 uppercase tracking-widest">Register a complaint</h3>
+      <p className="mt-1 text-xs text-slate-500 dark:text-cyan-600 uppercase">
         Our AI will analyze your request for faster processing.
       </p>
 
       <form onSubmit={handleSubmit} className="mt-6 grid gap-5">
-        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
+        <label className="grid gap-2 text-xs text-slate-600 dark:text-cyan-400 uppercase tracking-widest font-semibold">
           Consumer name
           <input
             name="consumerName"
             required
             defaultValue={defaultName}
             placeholder="Enter consumer name"
-            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all"
+            className="bg-slate-50 dark:bg-cyan-950/20 border border-slate-300 dark:border-cyan-500/30 p-3 text-slate-800 dark:text-cyan-100 outline-none focus:border-blue-500 dark:focus:border-cyan-400 focus:shadow-md dark:focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all rounded-lg dark:rounded-none"
           />
         </label>
 
-        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
+        <label className="grid gap-2 text-xs text-slate-600 dark:text-cyan-400 uppercase tracking-widest font-semibold">
           Consumer number
           <input
             name="consumerNumber"
@@ -90,16 +90,16 @@ export default function ComplaintForm({ defaultName = "", defaultNumber = "" }) 
             pattern="[0-9]{12}"
             title="Enter the 12-digit consumer number"
             placeholder="12-digit consumer number"
-            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all"
+            className="bg-slate-50 dark:bg-cyan-950/20 border border-slate-300 dark:border-cyan-500/30 p-3 text-slate-800 dark:text-cyan-100 outline-none focus:border-blue-500 dark:focus:border-cyan-400 focus:shadow-md dark:focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all rounded-lg dark:rounded-none"
           />
         </label>
 
-        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
+        <label className="grid gap-2 text-xs text-slate-600 dark:text-cyan-400 uppercase tracking-widest font-semibold">
           Complaint type
           <select
             name="category"
             required
-            className="bg-cyan-950/20 border border-cyan-500/30 p-3 text-cyan-100 outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all"
+            className="bg-slate-50 dark:bg-cyan-950/20 border border-slate-300 dark:border-cyan-500/30 p-3 text-slate-800 dark:text-cyan-100 outline-none focus:border-blue-500 dark:focus:border-cyan-400 focus:shadow-md dark:focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all rounded-lg dark:rounded-none"
           >
             <option value="">Choose one</option>
             <option>Power failure</option>
@@ -110,47 +110,47 @@ export default function ComplaintForm({ defaultName = "", defaultNumber = "" }) 
           </select>
         </label>
 
-        <label className="grid gap-2 text-xs text-cyan-400 uppercase tracking-widest">
+        <label className="grid gap-2 text-xs text-slate-600 dark:text-cyan-400 uppercase tracking-widest font-semibold">
           Area
           <input
             name="area"
             required
             placeholder="Your area or locality"
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-slate-50 dark:bg-cyan-950/20 border border-slate-300 dark:border-cyan-500/30 p-3 text-slate-800 dark:text-cyan-100 outline-none focus:border-blue-500 dark:focus:border-cyan-400 focus:shadow-md dark:focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all rounded-lg dark:rounded-none"
           />
         </label>
 
-        <label className="grid gap-2 text-sm">
+        <label className="grid gap-2 text-xs text-slate-600 dark:text-cyan-400 uppercase tracking-widest font-semibold">
           Describe the issue
           <textarea
             name="description"
             required
             rows={4}
             placeholder="What happened?"
-            className="rounded-lg bg-slate-800 p-3"
+            className="bg-slate-50 dark:bg-cyan-950/20 border border-slate-300 dark:border-cyan-500/30 p-3 text-slate-800 dark:text-cyan-100 outline-none focus:border-blue-500 dark:focus:border-cyan-400 focus:shadow-md dark:focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all rounded-lg dark:rounded-none"
           />
         </label>
 
-        <label className="grid gap-2 text-sm">
+        <label className="grid gap-2 text-xs text-slate-600 dark:text-cyan-400 uppercase tracking-widest font-semibold">
           Upload a photo of the fault (Optional)
           <input
             name="photo"
             type="file"
             accept="image/*"
-            className="rounded-lg bg-slate-800 p-2 text-slate-400 file:mr-4 file:rounded-xl file:border-0 file:bg-cyan-300 file:px-4 file:py-2 file:text-sm file:font-bold file:text-slate-950"
+            className="bg-slate-50 dark:bg-cyan-950/20 border border-slate-300 dark:border-cyan-500/30 p-2 text-slate-800 dark:text-cyan-100 rounded-lg dark:rounded-none file:mr-4 file:rounded-lg dark:file:rounded-sm file:border-0 file:bg-blue-100 dark:file:bg-cyan-500/20 file:px-4 file:py-2 file:text-xs file:font-bold file:text-blue-700 dark:file:text-cyan-400 hover:file:bg-blue-200 dark:hover:file:bg-cyan-500/40 transition-all"
           />
         </label>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-fit rounded-xl bg-cyan-300 px-4 py-3 font-bold text-slate-950 disabled:opacity-50"
+          className="w-fit rounded-xl dark:rounded-sm bg-blue-600 dark:bg-cyan-300/10 border border-blue-700 dark:border-cyan-400 px-6 py-3 font-bold text-white dark:text-cyan-400 hover:bg-blue-700 dark:hover:bg-cyan-400 dark:hover:text-slate-950 transition-colors uppercase tracking-widest dark:shadow-[0_0_10px_rgba(0,242,254,0.3)] disabled:opacity-50"
         >
           {isSubmitting ? "Analyzing..." : "Submit Complaint"}
         </button>
       </form>
 
-      <p role="status" className="mt-4 text-sm text-cyan-300">
+      <p role="status" className="mt-4 text-sm text-emerald-600 dark:text-cyan-300 font-bold">
         {message}
       </p>
     </section>
