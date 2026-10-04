@@ -1,39 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Voltcare-next
 
-## Getting Started
+Voltcare-next is a Next.js consumer portal for electricity services. It provides
+MSEDCL consumers with account access, complaint and service-request workflows,
+request tracking, and an electricity bill calculator.
 
-First, run the development server:
+## Features
+
+- Consumer registration and sign-in
+- Submit and track electricity complaints
+- Submit service requests and meter readings
+- AI-assisted complaint analysis and support chat
+- Admin complaint queue
+- Electricity bill calculator
+- Light and dark themes
+
+## Tech stack
+
+- Next.js 16 and React 19
+- Prisma ORM with SQLite
+- Tailwind CSS
+- Google Gemini API for AI features
+
+## Getting started
+
+### Requirements
+
+- Node.js compatible with the versions required by Next.js 16
+- npm
+
+### Install and configure
+
+```bash
+npm ci
+```
+
+Create `.env.local` in the project root and add a Google Gemini API key for the
+AI-powered chat and complaint analysis:
+
+```env
+OPENAI_API_KEY=your_google_gemini_api_key
+```
+
+The application currently reads the Gemini key from `OPENAI_API_KEY`. Keep the
+key private; `.env.local` is excluded from Git.
+
+Create or update the local SQLite database from the Prisma schema:
+
+```bash
+npx prisma db push
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Useful commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev       # Start the development server
+npm run lint      # Run ESLint
+npm run build     # Build for production
+npm run start     # Start the production server
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# Voltcare-next" 
-
-# Komujwar
+The Prisma schema is in [`prisma/schema.prisma`](./prisma/schema.prisma). The
+local SQLite database is created at `prisma/dev.db`.
