@@ -1,9 +1,6 @@
 import { cookies } from "next/headers";
 import { createConsumerSession } from "../../../lib/session";
-import { readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
-
-const usersPath = path.join(process.cwd(), "data", "users.json");
+import { prisma } from "../../../lib/prisma";
 
 export async function POST(request) {
   try {
@@ -17,15 +14,17 @@ export async function POST(request) {
       return Response.json({ error: "Consumer number must be 12 digits" }, { status: 400 });
     }
 
-    const users = JSON.parse(await readFile(usersPath, "utf8"));
+    const existingUser = await prisma.user.findUnique({
+      where: { consumerNumber }
+    });
     
-    if (users.find((u) => u.consumerNumber === consumerNumber)) {
+    if (existingUser) {
       return Response.json({ error: "Account already exists" }, { status: 400 });
     }
 
-    const newUser = { name, consumerNumber, password };
-    users.push(newUser);
-    await writeFile(usersPath, JSON.stringify(users, null, 2));
+    await prisma.user.create({
+      data: { name, consumerNumber, password }
+    });
 
     const token = await createConsumerSession(consumerNumber);
     const cookieStore = await cookies();
@@ -40,6 +39,7 @@ export async function POST(request) {
 
     return Response.json({ success: true });
   } catch (err) {
+    console.error(err);
     return Response.json({ error: "Internal error" }, { status: 500 });
   }
 }

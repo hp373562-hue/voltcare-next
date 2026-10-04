@@ -1,9 +1,6 @@
 import { cookies } from "next/headers";
 import { createConsumerSession } from "../../../lib/session";
-import { readFile } from "node:fs/promises";
-import path from "node:path";
-
-const usersPath = path.join(process.cwd(), "data", "users.json");
+import { prisma } from "../../../lib/prisma";
 
 export async function POST(request) {
   try {
@@ -13,10 +10,11 @@ export async function POST(request) {
       return Response.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    const users = JSON.parse(await readFile(usersPath, "utf8"));
-    const user = users.find((u) => u.consumerNumber === consumerNumber && u.password === password);
-
-    if (!user) {
+    const user = await prisma.user.findUnique({
+      where: { consumerNumber }
+    });
+    
+    if (!user || user.password !== password) {
       return Response.json({ error: "Invalid credentials" }, { status: 401 });
     }
 
@@ -33,6 +31,7 @@ export async function POST(request) {
 
     return Response.json({ success: true });
   } catch (err) {
+    console.error(err);
     return Response.json({ error: "Internal error" }, { status: 500 });
   }
 }
