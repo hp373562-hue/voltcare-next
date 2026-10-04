@@ -148,7 +148,7 @@ export default async function Home() {
             <div className="flex justify-between items-start">
               <div>
                 <p className="text-sm text-slate-500 dark:text-cyan-500 uppercase tracking-widest font-bold">Current Outstanding</p>
-                <p className="mt-2 text-3xl font-black text-slate-900 dark:text-cyan-300">₹1,486.20</p>
+                <p className="mt-2 text-3xl font-black text-slate-900 dark:text-cyan-300">₹2,549.60</p>
               </div>
               <span className="bg-orange-100 dark:bg-amber-500/20 text-orange-700 dark:text-amber-400 text-xs font-bold px-2 py-1 rounded dark:rounded-none">
                 Due in 3 days
@@ -284,20 +284,63 @@ export default async function Home() {
                  </div>
               </div>
 
-              <div className="w-full md:w-1/3 bg-slate-50 dark:bg-cyan-900/20 p-5 rounded-xl dark:rounded-none border border-slate-200 dark:border-cyan-500/30">
-                 <p className="text-sm text-slate-600 dark:text-cyan-500 font-bold mb-4">August Summary</p>
-                 <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs text-slate-500 dark:text-cyan-600 font-semibold uppercase">Your Consumption</span>
-                    <span className="text-sm font-black text-[#004085] dark:text-cyan-300">260 kWh</span>
-                 </div>
-                 <div className="flex justify-between items-center mb-4 pb-4 border-b border-slate-200 dark:border-cyan-500/30">
-                    <span className="text-xs text-slate-500 dark:text-cyan-600 font-semibold uppercase">Regional Average</span>
-                    <span className="text-sm font-bold text-slate-500 dark:text-cyan-700">295 kWh</span>
-                 </div>
-                 <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 p-2 rounded dark:rounded-none border border-emerald-100 dark:border-emerald-500/30">
-                    <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" /></svg>
-                    <span className="text-xs font-bold">11% lower than average!</span>
-                 </div>
+              <div className="w-full md:w-1/3 flex flex-col gap-4">
+                <div className="bg-slate-50 dark:bg-cyan-900/20 p-5 rounded-xl dark:rounded-none border border-slate-200 dark:border-cyan-500/30">
+                  <p className="text-sm text-slate-600 dark:text-cyan-500 font-bold mb-4">August Summary</p>
+                  <div className="flex justify-between items-center mb-2">
+                      <span className="text-xs text-slate-500 dark:text-cyan-600 font-semibold uppercase">Your Consumption</span>
+                      <span className="text-sm font-black text-[#004085] dark:text-cyan-300">260 kWh</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-4 pb-4 border-b border-slate-200 dark:border-cyan-500/30">
+                      <span className="text-xs text-slate-500 dark:text-cyan-600 font-semibold uppercase">Regional Average</span>
+                      <span className="text-sm font-bold text-slate-500 dark:text-cyan-700">295 kWh</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 p-2 rounded dark:rounded-none border border-emerald-100 dark:border-emerald-500/30">
+                      <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" /></svg>
+                      <span className="text-xs font-bold">11% lower than average!</span>
+                  </div>
+                </div>
+
+                <div className="bg-[#004085] dark:bg-cyan-950/40 p-5 rounded-xl dark:rounded-none border border-blue-900 dark:border-cyan-500/30 text-white dark:text-cyan-100">
+                  <p className="text-xs text-blue-200 dark:text-cyan-500 font-bold uppercase tracking-widest mb-3">MSEDCL LT-I Tariff (Updated)</p>
+                  <div className="space-y-2 text-xs font-mono">
+                    <div className="flex justify-between">
+                      <span className="text-blue-100 dark:text-cyan-600">Fixed Charge</span>
+                      <span>₹128.00</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-100 dark:text-cyan-600">0 - 100 units (@ ₹5.88)</span>
+                      <span>₹588.00</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-blue-100 dark:text-cyan-600">101 - 260 units (@ ₹11.46)</span>
+                      <span>₹1,833.60</span>
+                    </div>
+                    <div className="pt-2 mt-2 border-t border-blue-700 dark:border-cyan-500/30 flex justify-between font-bold">
+                      <span className="text-white dark:text-cyan-300">Energy Subtotal</span>
+                      <span className="text-emerald-400 dark:text-cyan-300">₹2,549.60</span>
+                    </div>
+                    
+                    <div className="mt-4 pt-4 border-t border-blue-800 dark:border-cyan-900/50 flex flex-col gap-2">
+                      <a 
+                        href="/calculator" 
+                        className="flex items-center justify-center gap-2 w-full bg-blue-600 dark:bg-cyan-400 hover:bg-blue-500 dark:hover:bg-cyan-300 text-white dark:text-slate-900 py-3 rounded-lg dark:rounded-none font-extrabold transition-all uppercase tracking-widest shadow-md shadow-blue-500/20 dark:shadow-[0_0_10px_rgba(0,242,254,0.3)]"
+                      >
+                        <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                        Interactive Bill Calculator
+                      </a>
+
+                      <a 
+                        href="https://wss.mahadiscom.in/wss/wss?uiActionName=getEnergyBillCalculator" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="flex items-center justify-center gap-2 w-full bg-blue-800 dark:bg-cyan-500/10 hover:bg-blue-700 dark:hover:bg-cyan-500/20 text-blue-200 dark:text-cyan-300 py-2 rounded-lg dark:rounded-none border border-transparent dark:border-cyan-500/30 text-[10px] font-bold transition-colors uppercase tracking-wide"
+                      >
+                        Official Mahavitaran Site (वीज देयक परिगणक) ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
            </div>
         </section>
